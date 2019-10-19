@@ -382,6 +382,66 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &452459648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 452459650}
+  - component: {fileID: 452459649}
+  m_Layer: 0
+  m_Name: throw
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &452459649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452459648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe792e6a623c71b4795c8931ee74610a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listThrowablePrefabs:
+  - {fileID: 1461704228466019375, guid: f60408f520b65d24e90f47cc0a745f2b, type: 3}
+  - {fileID: 1461704228466019375, guid: b85b6ba19d844de4da67177589691723, type: 3}
+  - {fileID: 1461704228466019375, guid: 65a29323b245f5c4d8e555250edf2042, type: 3}
+  - {fileID: 1461704228466019375, guid: 1b6ea076911992e4da2517ec79e8781e, type: 3}
+  - {fileID: 1461704228466019375, guid: 7827280bfe4337d4da3ff1eb2dda5042, type: 3}
+  - {fileID: 1461704228466019375, guid: 4b52bf53be850f04c9fdd557f9eaf66f, type: 3}
+  - {fileID: 1461704228466019375, guid: b8d700726ef6ab14cb7b2219a000cd01, type: 3}
+  - {fileID: 1461704228466019375, guid: a806ebd4bc194b64e8c5a9925ce23b5d, type: 3}
+  - {fileID: 1461704228466019375, guid: 7d3d1603703106944be8e6212ca4f90d, type: 3}
+  - {fileID: 1461704228466019375, guid: 4950c7f313a861e4eb0b51c4fc906ef7, type: 3}
+  - {fileID: 1461704228466019375, guid: 7eb179da64b96a448ba88269b704dd13, type: 3}
+  timeBetweenThrow: 0.2
+  angleProjection: 100
+  multiplicatorPowerProjection: 5000
+  SpawnObjectsSpread: 3.3
+  minimumValueToThrow: 0.01
+--- !u!4 &452459650
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452459648}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.04, y: -3.33, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &607237904
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,7 +614,6 @@ GameObject:
   - component: {fileID: 1184750207}
   - component: {fileID: 1184750209}
   - component: {fileID: 1184750208}
-  - component: {fileID: 1184750210}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -610,7 +669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salon: {fileID: 1992919604}
-  minimumValueToEpilepsy: 0.002
+  minimumValueToEpilepsy: 0.008
   speedFactor: 100000
 --- !u!114 &1184750209
 MonoBehaviour:
@@ -627,35 +686,6 @@ MonoBehaviour:
   micro: {fileID: 1834113155}
   dbCalme: 0.01
   debugMic: 0
---- !u!114 &1184750210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1184750205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe792e6a623c71b4795c8931ee74610a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listThrowablePrefabs:
-  - {fileID: 1461704228466019375, guid: f60408f520b65d24e90f47cc0a745f2b, type: 3}
-  - {fileID: 1461704228466019375, guid: b85b6ba19d844de4da67177589691723, type: 3}
-  - {fileID: 1461704228466019375, guid: 65a29323b245f5c4d8e555250edf2042, type: 3}
-  - {fileID: 1461704228466019375, guid: 1b6ea076911992e4da2517ec79e8781e, type: 3}
-  - {fileID: 1461704228466019375, guid: 7827280bfe4337d4da3ff1eb2dda5042, type: 3}
-  - {fileID: 1461704228466019375, guid: 4b52bf53be850f04c9fdd557f9eaf66f, type: 3}
-  - {fileID: 1461704228466019375, guid: b8d700726ef6ab14cb7b2219a000cd01, type: 3}
-  - {fileID: 1461704228466019375, guid: a806ebd4bc194b64e8c5a9925ce23b5d, type: 3}
-  - {fileID: 1461704228466019375, guid: 7d3d1603703106944be8e6212ca4f90d, type: 3}
-  - {fileID: 1461704228466019375, guid: 4950c7f313a861e4eb0b51c4fc906ef7, type: 3}
-  - {fileID: 1461704228466019375, guid: 7eb179da64b96a448ba88269b704dd13, type: 3}
-  timeBetweenThrow: 0.2
-  angleProjection: 100
-  multiplicatorPowerProjection: 5000
-  SpawnObjectsSpread: 3.3
-  minimumValueToThrow: 0.01
 --- !u!1 &1235687484
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,6 +1062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7464ba52353c1424d93815b1272eb9f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clipLoudness: 0
 --- !u!1 &1992919603
 GameObject:
   m_ObjectHideFlags: 0
