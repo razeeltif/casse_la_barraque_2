@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    MicroInput micro;
+    public MicroInput micro;
     public float dbCalme = 0.01f;
 
     //class micro 
@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        micro = GetComponent<MicroInput>();
 
     }
 
