@@ -13,6 +13,8 @@ public class Shake : MonoBehaviour
     public float waitingTimeMultiplicator = 1;
     public float yVariation = 1;
     public float xVariation = 1;
+    public bool laFuite = false;
+    public float tailleFuite = 0.5f;
 
     float magnitude;
     float waitingTime;
@@ -48,10 +50,15 @@ public class Shake : MonoBehaviour
         float microDb = GameManager.Instance.getDbMicro();
         SetWaitingTime(microDb);
 
+
+
         if (waitingTime < timeWaited)
         {
             SetMagnitude(microDb);
-            transform.position = magnitude * magnitudeDbMultiplicator * magnitudeMultiplicator * new Vector3(Random.Range(-xVariation, xVariation), Random.Range(-yVariation, yVariation), 0) + startPosition;
+            if (!laFuite)
+                transform.position = magnitude * magnitudeDbMultiplicator * magnitudeMultiplicator * new Vector3(Random.Range(-xVariation, xVariation), Random.Range(-yVariation, yVariation), 0) + startPosition;
+            else 
+                transform.position = new Vector3(0, tailleFuite, 0) + startPosition;
             timeWaited = 0;
         }
         else
