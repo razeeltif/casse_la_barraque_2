@@ -8,7 +8,14 @@ public class JourNuitScript : MonoBehaviour
     public Color nuit;
     public Color jour;
 
+    public Color ImmeubleNuit;
+    public Color ImmeubleJour;
+
+
+
     public DifficultySettings settings;
+
+    public SpriteRenderer[] immeubleSprites;
 
     private Coroutine fadeJourNuitCoroutine;
 
@@ -35,10 +42,15 @@ public class JourNuitScript : MonoBehaviour
 
             Color newColor = Color.Lerp(nuit, jour, ratio);
 
-            timer += Time.deltaTime;
 
             Camera.main.backgroundColor = newColor;
 
+            foreach(SpriteRenderer sprite in immeubleSprites)
+            {
+                sprite.color = Color.Lerp(ImmeubleNuit, ImmeubleJour, ratio);
+            }
+
+            timer += Time.deltaTime;
             yield return null;
         }
         
