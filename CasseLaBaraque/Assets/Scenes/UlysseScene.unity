@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 1180946148}
   - component: {fileID: 1180946149}
   - component: {fileID: 1180946150}
+  - component: {fileID: 1180946151}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -243,7 +244,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1180946144}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7464ba52353c1424d93815b1272eb9f8, type: 3}
   m_Name: 
@@ -359,6 +360,19 @@ MonoBehaviour:
   nuit: {r: 0.02367824, g: 0.020024916, b: 0.16981131, a: 0}
   jour: {r: 0.4009434, g: 0.8087773, b: 1, a: 0}
   settings: {fileID: 11400000, guid: 18fd6133525bce244be7042d85840621, type: 2}
+--- !u!114 &1180946151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180946144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6beac67fa958e764a9f8ad903ba0a17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dbCalme: 0.01
 --- !u!1 &1577970091
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,8 +407,9 @@ MonoBehaviour:
   - {fileID: 1461704228466019375, guid: f60408f520b65d24e90f47cc0a745f2b, type: 3}
   timeBetweenThrow: 0.2
   angleProjection: 100
-  multiplicatorPowerProjection: 10
+  multiplicatorPowerProjection: 5000
   SpawnObjectsSpread: 3.3
+  minimumValueToThrow: 0.01
 --- !u!4 &1577970093
 Transform:
   m_ObjectHideFlags: 0
