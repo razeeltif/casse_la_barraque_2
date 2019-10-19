@@ -1,11 +1,12 @@
-﻿using System.Collections; 
-using System.Collections.Generic; 
-using UnityEngine; 
- 
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     MicroInput micro;
+    public float dbCalme = 0.01f;
 
     //class micro 
 
@@ -34,12 +35,6 @@ public class GameManager : MonoBehaviour
 
     public float getDbCalme()
     {
-        return 0;
-    }
-
-    // Update is called once per frame 
-    void Update()
-    {
-
+        return dbCalme;
     }
 }

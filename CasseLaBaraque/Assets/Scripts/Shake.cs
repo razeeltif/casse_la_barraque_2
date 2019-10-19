@@ -1,7 +1,7 @@
-﻿using System.Collections; 
-using System.Collections.Generic; 
-using UnityEngine; 
- 
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class Shake : MonoBehaviour
 {
     private Vector3 startPosition;
@@ -57,6 +57,4 @@ public class Shake : MonoBehaviour
         else
             timeWaited += Time.deltaTime;
     }
-
-
 }

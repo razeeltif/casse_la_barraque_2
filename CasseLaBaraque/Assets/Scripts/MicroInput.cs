@@ -9,6 +9,7 @@ public class MicroInput : MonoBehaviour
     AudioClip microphoneInput;
     bool microInitialized;
     float clipLoudness = 0f;
+    int microPrecision = 128;
 
 
     void Awake()
@@ -27,24 +28,30 @@ public class MicroInput : MonoBehaviour
 
         return clipLoudness;
 
-    } 
+    }
 
     // Update is called once per frame
     void Update()
     {
         //initializing micro
-        if(!microInitialized)
+        if (!microInitialized)
             Awake();
 
 
         //get mic volume
-        float[] waveData = new float[microphoneInput.samples];
-        microphoneInput.GetData(waveData, 0);
-        
+
+
+        int micPosition = Microphone.GetPosition(null) - (microPrecision + 1);
+
+        //get mic volume
+        float[] waveData = new float[microPrecision];
+        microphoneInput.GetData(waveData, micPosition);
+        clipLoudness = 0;
+
         foreach (var sample in waveData)
         {
             clipLoudness += Mathf.Abs(sample);
         }
-        clipLoudness /= waveData.Length;
+        clipLoudness /= microPrecision;
     }
 }
