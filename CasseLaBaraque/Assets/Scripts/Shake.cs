@@ -55,7 +55,7 @@ public class Shake : MonoBehaviour
         if (waitingTime < timeWaited)
         {
             SetMagnitude(microDb);
-            if (!laFuite)
+            if (!laFuite||magnitude!=0)
                 transform.position = magnitude * magnitudeDbMultiplicator * magnitudeMultiplicator * new Vector3(Random.Range(-xVariation, xVariation), Random.Range(-yVariation, yVariation), 0) + startPosition;
             else 
                 transform.position = new Vector3(0, tailleFuite, 0) + startPosition;

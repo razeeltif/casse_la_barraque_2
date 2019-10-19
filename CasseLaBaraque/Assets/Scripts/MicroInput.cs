@@ -8,7 +8,7 @@ public class MicroInput : MonoBehaviour
 {
     AudioClip microphoneInput;
     bool microInitialized;
-    float clipLoudness = 0f;
+    public float clipLoudness = 0f;
     int microPrecision = 128;
 
 
