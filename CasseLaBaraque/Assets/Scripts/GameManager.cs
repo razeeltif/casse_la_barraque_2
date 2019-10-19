@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public MicroInput micro;
     public float dbCalme = 0.01f;
 
+    public float debugMic;
+
     //class micro 
 
     // Start is called before the first frame update 
@@ -29,6 +31,7 @@ public class GameManager : MonoBehaviour
     //db micro 
     public float getDbMicro()
     {
+        debugMic = micro.GetMicroLoudness();
         return micro.GetMicroLoudness();
     }
 

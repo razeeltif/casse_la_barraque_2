@@ -542,6 +542,120 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1184750205
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1184750206}
+  - component: {fileID: 1184750207}
+  - component: {fileID: 1184750209}
+  - component: {fileID: 1184750208}
+  - component: {fileID: 1184750210}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1184750206
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184750205}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1184750207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184750205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273d6e535fae552439bdbd0be33c893a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nuit: {r: 0, g: 0.0015723289, b: 0.03773582, a: 0}
+  jour: {r: 0.105019584, g: 0.18544179, b: 0.3773585, a: 0}
+  ImmeubleNuit: {r: 0, g: 0, b: 0, a: 1}
+  ImmeubleJour: {r: 1, g: 1, b: 1, a: 1}
+  settings: {fileID: 11400000, guid: 18fd6133525bce244be7042d85840621, type: 2}
+  immeubleSprites:
+  - {fileID: 332719632}
+  - {fileID: 1235687485}
+  - {fileID: 1502856977}
+--- !u!114 &1184750208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184750205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e7bae42c5f14c4b974a6365114f9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  salon: {fileID: 1992919604}
+  minimumValueToEpilepsy: 0.002
+  speedFactor: 100000
+--- !u!114 &1184750209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184750205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6beac67fa958e764a9f8ad903ba0a17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  micro: {fileID: 1834113155}
+  dbCalme: 0.01
+  debugMic: 0
+--- !u!114 &1184750210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184750205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe792e6a623c71b4795c8931ee74610a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listThrowablePrefabs:
+  - {fileID: 1461704228466019375, guid: f60408f520b65d24e90f47cc0a745f2b, type: 3}
+  - {fileID: 1461704228466019375, guid: b85b6ba19d844de4da67177589691723, type: 3}
+  - {fileID: 1461704228466019375, guid: 65a29323b245f5c4d8e555250edf2042, type: 3}
+  - {fileID: 1461704228466019375, guid: 1b6ea076911992e4da2517ec79e8781e, type: 3}
+  - {fileID: 1461704228466019375, guid: 7827280bfe4337d4da3ff1eb2dda5042, type: 3}
+  - {fileID: 1461704228466019375, guid: 4b52bf53be850f04c9fdd557f9eaf66f, type: 3}
+  - {fileID: 1461704228466019375, guid: b8d700726ef6ab14cb7b2219a000cd01, type: 3}
+  - {fileID: 1461704228466019375, guid: a806ebd4bc194b64e8c5a9925ce23b5d, type: 3}
+  - {fileID: 1461704228466019375, guid: 7d3d1603703106944be8e6212ca4f90d, type: 3}
+  - {fileID: 1461704228466019375, guid: 4950c7f313a861e4eb0b51c4fc906ef7, type: 3}
+  - {fileID: 1461704228466019375, guid: 7eb179da64b96a448ba88269b704dd13, type: 3}
+  timeBetweenThrow: 0.2
+  angleProjection: 100
+  multiplicatorPowerProjection: 5000
+  SpawnObjectsSpread: 3.3
+  minimumValueToThrow: 0.01
 --- !u!1 &1235687484
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,18 +1029,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1834113151}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 273d6e535fae552439bdbd0be33c893a, type: 3}
+  m_Script: {fileID: 11500000, guid: 7464ba52353c1424d93815b1272eb9f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nuit: {r: 0, g: 0.0048746695, b: 0.09433961, a: 0}
-  jour: {r: 0, g: 0.29611325, b: 1, a: 0}
-  ImmeubleNuit: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
-  ImmeubleJour: {r: 1, g: 1, b: 1, a: 1}
-  settings: {fileID: 11400000, guid: 18fd6133525bce244be7042d85840621, type: 2}
-  immeubleSprites:
-  - {fileID: 332719632}
-  - {fileID: 1235687485}
-  - {fileID: 1502856977}
 --- !u!1 &1992919603
 GameObject:
   m_ObjectHideFlags: 0
