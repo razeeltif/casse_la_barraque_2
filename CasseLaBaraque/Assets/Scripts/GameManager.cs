@@ -77,4 +77,16 @@ public class GameManager : MonoBehaviour
     {
         return dbCalme;
     }
+
+    void PlayHiddingSound()
+    {
+
+    }
+
+    void Update()
+    {
+        if (getDbMicro() <= dbCalme)
+            PlayHiddingSound();
+
+    }
 }
