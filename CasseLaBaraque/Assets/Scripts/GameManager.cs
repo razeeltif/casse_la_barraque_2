@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    public GameplaySettings settings;
+
     public static GameManager Instance;
     public MicroInput micro;
-    public float dbCalme = 0.01f;
+    public float dbCalme;
 
-    public float debugMic;
+    public bool isInDetection = false;
 
     public bool inGame;
 
@@ -20,6 +23,7 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            dbCalme = settings.minimumDbForDetection;
         }
         else
         {
@@ -45,10 +49,23 @@ public class GameManager : MonoBehaviour
         inGame = true;
     }
 
+
+    private void Update()
+    {
+
+        // DETECTION
+        if (isInDetection && getDbMicro() > settings.minimumDbForDetection)
+        {
+            EventManager.onDetection();
+        }
+
+
+    }
+
+
     //db micro 
     public float getDbMicro()
     {
-        debugMic = micro.GetMicroLoudness();
         return micro.GetMicroLoudness();
     }
 

@@ -5,13 +5,11 @@ using UnityEngine;
 public class ThrowThingsManager : MonoBehaviour
 {
 
+    public GameplaySettings settings;
+
     public GameObject[] listThrowablePrefabs;
 
-    public float timeBetweenThrow = 1f;
-    public float angleProjection = 100f;
-    public float multiplicatorPowerProjection = 10000f;
-    public float SpawnObjectsSpread = 10f;
-    public float minimumValueToThrow = 0.0001f;
+
 
     private List<GameObject> listThingThrown;
     private UTimer ThrowTimer;
@@ -23,7 +21,7 @@ public class ThrowThingsManager : MonoBehaviour
     {
         listThingThrown = new List<GameObject>();
 
-        ThrowTimer = UTimer.Initialize(timeBetweenThrow, this, ThrowObject);
+        ThrowTimer = UTimer.Initialize(settings.timeBetweenThrow, this, ThrowObject);
     }
 
     // Update is called once per frame
@@ -35,13 +33,13 @@ public class ThrowThingsManager : MonoBehaviour
             DestroyAllObjects();
         }
 
-        if(!IsThrowing && GameManager.Instance.getDbMicro() > minimumValueToThrow)
+        if(!IsThrowing && GameManager.Instance.getDbMicro() > settings.minDbForThrowThings)
         {
             ThrowObject();
             IsThrowing = true;
         }
 
-        if(GameManager.Instance.getDbMicro() < minimumValueToThrow)
+        if(GameManager.Instance.getDbMicro() < settings.minDbForThrowThings)
         {
             ThrowTimer.Stop();
             IsThrowing = false;
@@ -58,11 +56,11 @@ public class ThrowThingsManager : MonoBehaviour
         listThingThrown.Add(objectToThrow);
 
         // set initial position
-        float x = Random.Range(-SpawnObjectsSpread, SpawnObjectsSpread);
+        float x = Random.Range(-settings.SpawnObjectsSpread, settings.SpawnObjectsSpread);
         objectToThrow.transform.position = new Vector3(transform.position.x + x, transform.position.y, transform.position.z);
 
         // set force and direction of the throw
-        float angle = Random.Range(-angleProjection, angleProjection);
+        float angle = Random.Range(-settings.angleProjection, settings.angleProjection);
         objectToThrow.GetComponent<Rigidbody2D>().AddForce(new Vector2(angle, getPowerProjection()));
 
         // restart the timer
@@ -81,13 +79,13 @@ public class ThrowThingsManager : MonoBehaviour
 
     private float getPowerProjection()
      {
-        return multiplicatorPowerProjection * GameManager.Instance.getDbMicro();
+        return settings.multiplicatorPowerProjection * GameManager.Instance.getDbMicro();
      }
 
     private void OnDrawGizmos()
     {
-        Vector3 from = new Vector3(this.transform.position.x - SpawnObjectsSpread, this.transform.position.y, this.transform.position.z);
-        Vector3 to = new Vector3(this.transform.position.x + SpawnObjectsSpread, this.transform.position.y, this.transform.position.z);
+        Vector3 from = new Vector3(this.transform.position.x - settings.SpawnObjectsSpread, this.transform.position.y, this.transform.position.z);
+        Vector3 to = new Vector3(this.transform.position.x + settings.SpawnObjectsSpread, this.transform.position.y, this.transform.position.z);
         Gizmos.DrawLine(from, to);
     }
 

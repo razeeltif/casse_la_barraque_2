@@ -411,6 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe792e6a623c71b4795c8931ee74610a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: eda12a3799041264ba339daf2622e9d4, type: 2}
   listThrowablePrefabs:
   - {fileID: 1461704228466019375, guid: f60408f520b65d24e90f47cc0a745f2b, type: 3}
   - {fileID: 1461704228466019375, guid: b85b6ba19d844de4da67177589691723, type: 3}
@@ -423,11 +424,6 @@ MonoBehaviour:
   - {fileID: 1461704228466019375, guid: 7d3d1603703106944be8e6212ca4f90d, type: 3}
   - {fileID: 1461704228466019375, guid: 4950c7f313a861e4eb0b51c4fc906ef7, type: 3}
   - {fileID: 1461704228466019375, guid: 7eb179da64b96a448ba88269b704dd13, type: 3}
-  timeBetweenThrow: 0.2
-  angleProjection: 100
-  multiplicatorPowerProjection: 5000
-  SpawnObjectsSpread: 3.3
-  minimumValueToThrow: 0.01
 --- !u!4 &452459650
 Transform:
   m_ObjectHideFlags: 0
@@ -669,8 +665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salon: {fileID: 1992919604}
-  minimumValueToEpilepsy: 0.008
-  speedFactor: 100000
+  settings: {fileID: 11400000, guid: eda12a3799041264ba339daf2622e9d4, type: 2}
 --- !u!114 &1184750209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -683,9 +678,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6beac67fa958e764a9f8ad903ba0a17e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: eda12a3799041264ba339daf2622e9d4, type: 2}
   micro: {fileID: 1834113155}
   dbCalme: 0.01
-  debugMic: 0
+  isInDetection: 0
 --- !u!1 &1235687484
 GameObject:
   m_ObjectHideFlags: 0

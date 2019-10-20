@@ -9,11 +9,9 @@ public class EpilepsieWarning : MonoBehaviour
 
 
     public SpriteRenderer salon;
+    public GameplaySettings settings;
 
-    public float minimumValueToEpilepsy = 0.0001f;
-    public float speedFactor = 100f;
-
-    Vector3 color = new Vector3(255, 0, 0);
+    Vector3 color = new Vector3(1, 0, 0);
 
     private Coroutine epilepsyCoroutine;
 
@@ -24,7 +22,7 @@ public class EpilepsieWarning : MonoBehaviour
      
         if(epilepsyCoroutine == null)
         {
-            if(GameManager.Instance.getDbMicro() > minimumValueToEpilepsy)
+            if(GameManager.Instance.getDbMicro() > settings.DbForEpilepsy)
             {
                 startEpilepsy();
             }
@@ -32,7 +30,7 @@ public class EpilepsieWarning : MonoBehaviour
         }
         else
         {
-            if(GameManager.Instance.getDbMicro() < minimumValueToEpilepsy)
+            if(GameManager.Instance.getDbMicro() < settings.DbForEpilepsy)
             {
                 stopEpilepsy();
             }
@@ -52,7 +50,7 @@ public class EpilepsieWarning : MonoBehaviour
 
         epilepsyCoroutine = null;
 
-        salon.color = new Color(255, 255, 255, 255);
+        salon.color = new Color(1, 1, 1, 1);
     }
 
 
@@ -67,9 +65,9 @@ public class EpilepsieWarning : MonoBehaviour
             {
                 case STATE.state1:
 
-                    color.y += Time.deltaTime * speedFactor * GameManager.Instance.getDbMicro();
+                    color.y += Time.deltaTime * settings.speedFactor * GameManager.Instance.getDbMicro();
 
-                    if (color.y >= 255)
+                    if (color.y >= 1)
                     {
                         actualState = STATE.state12;
                     }
@@ -78,7 +76,7 @@ public class EpilepsieWarning : MonoBehaviour
 
                 case STATE.state12:
 
-                    color.x -= Time.deltaTime * speedFactor * GameManager.Instance.getDbMicro();
+                    color.x -= Time.deltaTime * settings.speedFactor * GameManager.Instance.getDbMicro();
 
                     if (color.x <= 0)
                     {
@@ -88,9 +86,9 @@ public class EpilepsieWarning : MonoBehaviour
 
                 case STATE.state2:
 
-                    color.z += Time.deltaTime * speedFactor * GameManager.Instance.getDbMicro();
+                    color.z += Time.deltaTime * settings.speedFactor * GameManager.Instance.getDbMicro();
 
-                    if (color.z >= 255)
+                    if (color.z >= 1)
                     {
                         actualState = STATE.state23;
                     }
@@ -98,7 +96,7 @@ public class EpilepsieWarning : MonoBehaviour
 
                 case STATE.state23:
 
-                    color.y -= Time.deltaTime * speedFactor * GameManager.Instance.getDbMicro();
+                    color.y -= Time.deltaTime * settings.speedFactor * GameManager.Instance.getDbMicro();
 
                     if (color.y <= 0)
                     {
@@ -108,9 +106,9 @@ public class EpilepsieWarning : MonoBehaviour
 
                 case STATE.state3:
 
-                    color.x += Time.deltaTime * speedFactor * GameManager.Instance.getDbMicro();
+                    color.x += Time.deltaTime * settings.speedFactor * GameManager.Instance.getDbMicro();
 
-                    if (color.x >= 255)
+                    if (color.x >= 1)
                     {
                         actualState = STATE.state31;
                     }
@@ -118,7 +116,7 @@ public class EpilepsieWarning : MonoBehaviour
 
                 case STATE.state31:
 
-                    color.z -= Time.deltaTime * speedFactor * GameManager.Instance.getDbMicro();
+                    color.z -= Time.deltaTime * settings.speedFactor * GameManager.Instance.getDbMicro();
 
                     if (color.z <= 0)
                     {
@@ -128,7 +126,7 @@ public class EpilepsieWarning : MonoBehaviour
 
             }
 
-            salon.color = new Color(color.x, color.y, color.z, 255);
+            salon.color = new Color(color.x, color.y, color.z, 1);
             yield return null;
         }
 
