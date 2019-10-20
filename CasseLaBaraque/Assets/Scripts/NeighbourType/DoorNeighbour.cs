@@ -19,17 +19,17 @@ public class DoorNeighbour : Neighbour
 
     public override void CallSign()
     {
-        this.GetComponent<Animator>().Play("checking-door");
+        this.GetComponent<Animator>().Play("doom_neighbour_checking");
     }
 
     public override void CallComing()
     {
-        this.GetComponent<Animator>().Play("coming-door");
+        this.GetComponent<Animator>().Play("doom_neighbour_coming");
     }
 
     public override void CallDeparture()
     {
-        this.GetComponent<Animator>().Play("departure-door");
+        this.GetComponent<Animator>().Play("doom_neighbour_departure");
     }
 
 }
