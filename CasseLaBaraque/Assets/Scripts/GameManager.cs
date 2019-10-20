@@ -15,6 +15,12 @@ public class GameManager : MonoBehaviour
 
     public bool inGame;
 
+
+
+    private void OnEnable()
+    {
+        EventManager.BeginSurvey += OnBeginSurvey;
+    }
     //class micro 
 
     // Start is called before the first frame update 
@@ -86,4 +92,9 @@ public class GameManager : MonoBehaviour
 
     }
 
+
+    void OnBeginSurvey()
+    {
+        isInDetection = true;
+    }
 }
