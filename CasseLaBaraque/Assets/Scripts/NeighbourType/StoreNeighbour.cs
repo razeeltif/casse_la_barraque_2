@@ -20,22 +20,23 @@ public class StoreNeighbour : Neighbour
 
     public override void CallSign()
     {
-        this.GetComponent<Animator>().Play("");
+        this.GetComponentsInChildren<Animator>()[0].Play("volet_ouverture");
     }
 
     public override void CallComing()
     {
-        this.GetComponent<Animator>().Play("voisin_apparition");
+        this.GetComponentsInChildren<Animator>()[1].Play("fond_voisin_arrivee");
     }
 
     public override void CallDeparture()
     {
-        this.GetComponent<Animator>().Play("voisin_sortie");
+        this.GetComponentsInChildren<Animator>()[0].Play("fond_voisin_sortie");
+        this.GetComponentsInChildren<Animator>()[1].Play("volet_fermeture");
     }
 
     public override void CallTriggered()
     {
-        this.GetComponent<Animator>().Play("voisin_furax");
+        this.GetComponentsInChildren<Animator>()[1].Play("fond_voisin_furax");
     }
 
 }

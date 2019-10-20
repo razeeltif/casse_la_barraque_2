@@ -110,6 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4512602095101671404}
   - component: {fileID: 4512602095101671405}
+  - component: {fileID: 8636050406137854006}
   m_Layer: 0
   m_Name: tour
   m_TagString: Untagged
@@ -183,6 +184,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8636050406137854006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4512602095101671394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ba1ee405c8cc224294980e41efeddd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4512602095509023807
 GameObject:
   m_ObjectHideFlags: 0
