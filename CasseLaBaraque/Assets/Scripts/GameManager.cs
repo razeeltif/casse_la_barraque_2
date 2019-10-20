@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
     public MicroInput micro;
-    public float dbCalme;
+    float dbCalme;
 
     public bool isInDetection = false;
 
@@ -20,12 +20,15 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         EventManager.BeginSurvey += OnBeginSurvey;
+        EventManager.EndingSurvey += OnEndingSurvey;
     }
 
     private void OnDisable()
     {
         EventManager.BeginSurvey -= OnBeginSurvey;
+        EventManager.EndingSurvey -= OnEndingSurvey;
     }
+
     //class micro 
 
     // Start is called before the first frame update 
@@ -101,5 +104,10 @@ public class GameManager : MonoBehaviour
     void OnBeginSurvey()
     {
         isInDetection = true;
+    }
+
+    void OnEndingSurvey()
+    {
+        isInDetection = false;
     }
 }
