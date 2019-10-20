@@ -50,6 +50,10 @@ public class NeighbourManager : MonoBehaviour
     void Coming()
     {
         neighbourList[randomIndex].CallComing();
+
+        EventManager.onBeginSurvey();
+        GameManager.Instance.isInDetection = true;
+
         timerBetweenComingDeparture.start();
     }
 
