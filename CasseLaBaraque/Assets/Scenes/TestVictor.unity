@@ -1233,7 +1233,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings: {fileID: 0}
   micro: {fileID: 561075939}
-  dbCalme: 0.002
   isInDetection: 0
   inGame: 1
 --- !u!4 &916282811
@@ -1258,7 +1257,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 916282809}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2bd3e7e7b7d395846a433b76749c3d58, type: 3}
   m_Name: 
@@ -1578,7 +1577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d851ec31133864aad4ccad5c5e6049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hiddingSoundAverageSpacing: 3
+  hiddingSoundAverageSpacing: 1
   hiddingSoundSpacingSpread: 0
 --- !u!1 &1502856976
 GameObject:

@@ -6,6 +6,7 @@ public class SoundManager : MonoBehaviour
 {
     int musicIndex;
     bool zero;
+    bool stoped;
     public float hiddingSoundAverageSpacing;
     public float hiddingSoundSpacingSpread;
     float timeToWait;
@@ -18,13 +19,31 @@ public class SoundManager : MonoBehaviour
     {
         musicIndex = 0;
         zero = true;
+        stoped = true;
         timeToWait = Random.Range(-hiddingSoundSpacingSpread, hiddingSoundSpacingSpread) + hiddingSoundAverageSpacing;
         hiddingSound = GetComponents<LightAudioManager>()[0];
         policeSound = GetComponents<LightAudioManager>()[1];
         grosseKali = GetComponents<LightAudioManager>()[2];
     }
 
-    
+    private void OnEnable()
+    {
+        EventManager.EndingSurvey += YaLesVoisinsQuiPartent;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.EndingSurvey -= YaLesVoisinsQuiPartent;
+    }
+
+    void YaLesVoisinsQuiPartent()
+    {
+        grosseKali.Stop("" + musicIndex);
+        if (musicIndex < grosseKali.sounds.Length - 2)
+            musicIndex++;
+        else
+            musicIndex = 0;
+    }
 
     // Update is called once per frame
     void Update()
@@ -33,13 +52,8 @@ public class SoundManager : MonoBehaviour
         {
             if (!zero)
             {
-                grosseKali.Stop("" + musicIndex);
+                grosseKali.Pause("" + musicIndex);
                 zero = true;
-                if (musicIndex < grosseKali.sounds.Length - 2)
-                    musicIndex++;
-                else
-                    musicIndex = 0;
-
             }
             if (timeToWait <= 0)
             {
@@ -52,8 +66,13 @@ public class SoundManager : MonoBehaviour
 
         } else if (zero)
         {
+            if (stoped)
+            {
+                grosseKali.Play("" + musicIndex);
+                stoped = false;
+            }
             zero = false;
-            grosseKali.Play(""+musicIndex);
+            grosseKali.Unpause(""+musicIndex);
         } else
         {
             //rien 

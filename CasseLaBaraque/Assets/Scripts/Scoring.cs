@@ -14,7 +14,6 @@ public class Scoring : MonoBehaviour
         score = 0;
         microDb = 0;
         textMesh = GetComponent<TextMeshProUGUI>();
-        Debug.Log(textMesh == null);
     }
 
     // Update is called once per frame
