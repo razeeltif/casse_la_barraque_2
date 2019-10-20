@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1461704228466019370}
   - component: {fileID: 1461704228466019372}
   - component: {fileID: 8256573538026251071}
+  - component: {fileID: -2315896735730506800}
   m_Layer: 0
   m_Name: canette
   m_TagString: Untagged
@@ -119,3 +120,15 @@ CircleCollider2D:
   m_Offset: {x: -1.4, y: 0.61}
   serializedVersion: 2
   m_Radius: 2.03
+--- !u!114 &-2315896735730506800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461704228466019375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311dceda6b21e4d40b1509368f3fa83a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

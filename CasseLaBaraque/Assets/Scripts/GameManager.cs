@@ -13,13 +13,18 @@ public class GameManager : MonoBehaviour
 
     public bool isInDetection = false;
 
-    public bool inGame;
+    public bool inGame = true;
 
 
 
     private void OnEnable()
     {
         EventManager.BeginSurvey += OnBeginSurvey;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.BeginSurvey -= OnBeginSurvey;
     }
     //class micro 
 
@@ -57,15 +62,15 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        StaticAudioManager.instance.Play("patate");
     }
 
     private void Update()
     {
 
         // DETECTION
-        if (isInDetection && getDbMicro() > dbCalme)
+        if (inGame && isInDetection && getDbMicro() > dbCalme)
         {
+            inGame = false;
             EventManager.onDetected();
         }
 
