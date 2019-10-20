@@ -1233,7 +1233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings: {fileID: 0}
   micro: {fileID: 561075939}
-  dbCalme: 0.01
+  dbCalme: 0.002
   isInDetection: 0
   inGame: 1
 --- !u!4 &916282811
@@ -1411,6 +1411,7 @@ GameObject:
   - component: {fileID: 1311819097}
   - component: {fileID: 1311819096}
   - component: {fileID: 1311819095}
+  - component: {fileID: 1311819098}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -1445,70 +1446,70 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: le feu
+  - name: 0
     clip: {fileID: 8300000, guid: 1685acf27707e09469a63f7658bbb4fb, type: 3}
     volume: 1
     pitch: 1
     spatialBlend: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: Dana
+  - name: 1
     clip: {fileID: 8300000, guid: 408576f03faf7784992c06271f0138eb, type: 3}
     volume: 1
     pitch: 1
     spatialBlend: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: FM
+  - name: 2
     clip: {fileID: 8300000, guid: 37eb0acc0b28a044d902322d8751b5e7, type: 3}
     volume: 1
     pitch: 1
     spatialBlend: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: Il a honte
+  - name: 3
     clip: {fileID: 8300000, guid: 44974e10cda7fae4c96a85cc3fa7ece1, type: 3}
     volume: 1
     pitch: 1
     spatialBlend: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: "Engag\xE9Game"
+  - name: 4
     clip: {fileID: 8300000, guid: a15c079b7ac60284f8ce5e5b081da3a6, type: 3}
     volume: 1
     pitch: 1
     spatialBlend: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: C bo
+  - name: 5
     clip: {fileID: 8300000, guid: 8fd4f02a455fa314d9c9d7df3e282c5c, type: 3}
     volume: 1
     pitch: 1
     spatialBlend: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: Chiara c pour toi
+  - name: 6
     clip: {fileID: 8300000, guid: 64113f78a9064984eb27744cc6ab6e50, type: 3}
     volume: 1
     pitch: 1
     spatialBlend: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: keurkeurkeur
+  - name: 7
     clip: {fileID: 8300000, guid: 2ea70b9d28cce8741b0a008d9efcc16e, type: 3}
     volume: 1
     pitch: 1
     spatialBlend: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: Shark
+  - name: 8
     clip: {fileID: 8300000, guid: 6b0db36ca353fbe4393cc9a1cb63ef10, type: 3}
     volume: 1
     pitch: 1
     spatialBlend: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: Jeanne c pour toi
+  - name: 9
     clip: {fileID: 8300000, guid: 088c3b8dd2325aa45b594fb354d7151e, type: 3}
     volume: 1
     pitch: 1
@@ -1543,21 +1544,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: shhh
+  - name: 0
     clip: {fileID: 8300000, guid: db5dd983b10f29340a058161fb92d370, type: 3}
     volume: 1
     pitch: 1
     spatialBlend: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: bzzz
+  - name: 1
     clip: {fileID: 8300000, guid: 09a0fa05df7e8aa47a12c3a798cd7486, type: 3}
     volume: 1
     pitch: 1
     spatialBlend: 1
     loop: 0
     audioSource: {fileID: 0}
-  - name: Cough
+  - name: 2
     clip: {fileID: 8300000, guid: 1db0b75ec357446428b5cdee7f32b112, type: 3}
     volume: 1
     pitch: 1
@@ -1565,6 +1566,20 @@ MonoBehaviour:
     loop: 0
     audioSource: {fileID: 0}
   name: HiddingSound
+--- !u!114 &1311819098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311819093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d851ec31133864aad4ccad5c5e6049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hiddingSoundAverageSpacing: 3
+  hiddingSoundSpacingSpread: 0
 --- !u!1 &1502856976
 GameObject:
   m_ObjectHideFlags: 0
