@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class Neighbour : MonoBehaviour
 {
-    public DifficultySettings settings;
-
-    // Start is called before the first frame update
-    void Start()
+    public virtual void CallSign()
+    {
+        
+    }
+    public virtual void CallDeparture()
+    {
+        
+    }
+    public virtual void CallComing()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
+ 
