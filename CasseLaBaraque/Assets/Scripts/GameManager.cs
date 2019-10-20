@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     public float debugMic;
 
+    public bool inGame;
+
     //class micro 
 
     // Start is called before the first frame update 
@@ -26,6 +28,21 @@ public class GameManager : MonoBehaviour
         }
 
 
+    }
+
+    public bool GetInGame()
+    {
+        return inGame;
+    }
+
+    public void StopGame()
+    {
+        inGame = false;
+    }
+
+    public void StartGame()
+    {
+        inGame = true;
     }
 
     //db micro 
