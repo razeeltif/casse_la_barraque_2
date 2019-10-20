@@ -58,10 +58,13 @@ public class GameManager : MonoBehaviour
     {
 
         // DETECTION
-        if (isInDetection && getDbMicro() > settings.minimumDbForDetection)
+        if (isInDetection && getDbMicro() > dbCalme)
         {
             EventManager.onDetected();
         }
+
+        if (getDbMicro() <= dbCalme)
+            PlayHiddingSound();
 
 
     }
@@ -83,10 +86,4 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void Update()
-    {
-        if (getDbMicro() <= dbCalme)
-            PlayHiddingSound();
-
-    }
 }
