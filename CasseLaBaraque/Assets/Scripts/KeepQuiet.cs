@@ -7,6 +7,12 @@ public class KeepQuiet : MonoBehaviour
 
     public Color lightOffColor;
 
+    public SpriteRenderer[] objectsInShadow;
+
+    bool surveing = false;
+    bool lightOff = false;
+
+
     private void OnEnable()
     {
         EventManager.BeginSurvey += OnBeginSurvey;
@@ -30,21 +36,39 @@ public class KeepQuiet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(!lightOff && surveing && GameManager.Instance.getDbMicro() < GameManager.Instance.getDbCalme())
+        {
+            lightOff = true;
+            foreach(SpriteRenderer sprite in objectsInShadow)
+            {
+                sprite.color = lightOffColor;
+            }
+        }
     }
 
     void OnBeginSurvey()
     {
-
-    }
-
-    void OnBeginDetected()
-    {
-
+        surveing = true;
     }
 
     void OnEndingSurvey()
     {
+        surveing = false;
+        lightOff = false;
+        foreach (SpriteRenderer sprite in objectsInShadow)
+        {
+            sprite.color = new Color(1,1,1,1);
+        }
+    }
 
+
+    void OnBeginDetected()
+    {
+        surveing = false;
+        lightOff = false;
+        foreach (SpriteRenderer sprite in objectsInShadow)
+        {
+            sprite.color = new Color(1, 1, 1, 1);
+        }
     }
 }
