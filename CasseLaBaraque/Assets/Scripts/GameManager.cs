@@ -49,6 +49,10 @@ public class GameManager : MonoBehaviour
         inGame = true;
     }
 
+    private void Start()
+    {
+        StaticAudioManager.instance.Play("patate");
+    }
 
     private void Update()
     {
@@ -56,7 +60,7 @@ public class GameManager : MonoBehaviour
         // DETECTION
         if (isInDetection && getDbMicro() > settings.minimumDbForDetection)
         {
-            EventManager.onDetection();
+            EventManager.onDetected();
         }
 
 
