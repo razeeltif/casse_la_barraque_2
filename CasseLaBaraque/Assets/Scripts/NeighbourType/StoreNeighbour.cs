@@ -20,17 +20,22 @@ public class StoreNeighbour : Neighbour
 
     public override void CallSign()
     {
-        this.GetComponent<Animator>().Play("checking-store");
+        this.GetComponent<Animator>().Play("");
     }
 
     public override void CallComing()
     {
-        this.GetComponent<Animator>().Play("coming-store");
+        this.GetComponent<Animator>().Play("voisin_apparition");
     }
 
     public override void CallDeparture()
     {
-        this.GetComponent<Animator>().Play("departure-store");
+        this.GetComponent<Animator>().Play("voisin_sortie");
+    }
+
+    public override void CallTriggered()
+    {
+        this.GetComponent<Animator>().Play("voisin_furax");
     }
 
 }

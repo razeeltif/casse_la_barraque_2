@@ -19,16 +19,21 @@ public class WindowNeighbour : Neighbour
 
     public override void CallSign()
     {
-        this.GetComponent<Animator>().Play("Sign");
+        this.GetComponent<Animator>().Play("voisin_fenetre_check");
     }
 
     public override void CallComing()
     {
-        this.GetComponent<Animator>().Play("Coming");
+        this.GetComponent<Animator>().Play("voisin_fenetre_arrivee");
     }
 
     public override void CallDeparture()
     {
-        this.GetComponent<Animator>().Play("Departure");
+        this.GetComponent<Animator>().Play("voisin_fenetre_sortie");
+    }
+
+    public override void CallTriggered()
+    {
+        this.GetComponent<Animator>().Play("voisin_fenetre_furax");
     }
 }

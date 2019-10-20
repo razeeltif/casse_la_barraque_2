@@ -19,17 +19,22 @@ public class DoorNeighbour : Neighbour
 
     public override void CallSign()
     {
-        this.GetComponent<Animator>().Play("doom_neighbour_checking");
+        this.GetComponent<Animator>().Play("");
     }
 
     public override void CallComing()
     {
-        this.GetComponent<Animator>().Play("doom_neighbour_coming");
+        this.GetComponent<Animator>().Play("policeman_arrivee");
     }
 
     public override void CallDeparture()
     {
-        this.GetComponent<Animator>().Play("doom_neighbour_departure");
+        this.GetComponent<Animator>().Play("policeman_sortie");
+    }
+
+    public override void CallTriggered()
+    {
+        this.GetComponent<Animator>().Play("policeman_furax");
     }
 
 }

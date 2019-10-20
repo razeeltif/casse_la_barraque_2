@@ -17,5 +17,10 @@ public class Neighbour : MonoBehaviour
         
     }
 
+    public virtual void CallTriggered()
+    {
+
+    }
+
 }
  

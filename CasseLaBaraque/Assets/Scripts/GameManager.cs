@@ -69,7 +69,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-
         // DETECTION
         if (inGame && isInDetection && getDbMicro() > dbCalme)
         {

@@ -52,7 +52,6 @@ public class NeighbourManager : MonoBehaviour
         neighbourList[randomIndex].CallComing();
 
         EventManager.onBeginSurvey();
-        GameManager.Instance.isInDetection = true;
 
         timerBetweenComingDeparture.start();
     }
@@ -63,6 +62,21 @@ public class NeighbourManager : MonoBehaviour
         randomIndex = Random.Range(0, neighbourList.Capacity - 1);
         timerBetweenRestSigne.start();
 
+    }
+
+    private void OnEnable()
+    {
+        EventManager.Detection += NeighbourTriggered;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Detection -= NeighbourTriggered;
+    }
+
+    void NeighbourTriggered()
+    {
+        neighbourList[randomIndex].CallTriggered();
     }
 
 }
