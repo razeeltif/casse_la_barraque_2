@@ -4,15 +4,36 @@ using UnityEngine;
 
 public class MenuScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public Canvas menuPrincipal;
+    public Canvas credit;
+   
+
+    public void OnClickPlay()
     {
-        
+        SceneMan.Instance.LoadScene("Graph");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnClickCredit()
     {
-        
+        menuPrincipal.gameObject.SetActive(false);
+        credit.gameObject.SetActive(true);
     }
+
+    public void OnClickReturn()
+    {
+        menuPrincipal.gameObject.SetActive(true);
+        credit.gameObject.SetActive(false);
+    }
+
+    public void OnClickQuit()
+    {
+        Application.Quit();
+    }
+
+    public void OnClickUseless()
+    {
+
+    }
+
 }
