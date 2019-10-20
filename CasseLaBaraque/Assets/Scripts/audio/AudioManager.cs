@@ -35,7 +35,25 @@ public abstract class AudioManager : MonoBehaviour {
 			s.audioSource.Stop();
 	}
 
-	public AudioSource GetAudioSource(string name){
+    public void Pause(string name)
+    {
+        Sound s = findSound(name);
+        if (s != null)
+        {
+            s.audioSource.Pause();
+        }
+    }
+
+    public void Unpause(string name)
+    {
+        Sound s = findSound(name);
+        if (s != null)
+        {
+            s.audioSource.UnPause();
+        }
+    }
+
+    public AudioSource GetAudioSource(string name){
 		Sound s = findSound(name);
 		if(s != null)
 			return s.audioSource;
