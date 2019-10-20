@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Gameplay Settings
   m_EditorClassIdentifier: 
   minimumDbForDetection: 0.09
-  minDbForThrowThings: 0.4
+  minDbForThrowThings: 0.15
   timeBetweenThrow: 1
   angleProjection: 100
   multiplicatorPowerProjection: 5000
-  SpawnObjectsSpread: 3.3
-  DbForEpilepsy: 0.4
+  SpawnObjectsSpread: 5.72
+  DbForEpilepsy: 0.09
   speedFactor: 100

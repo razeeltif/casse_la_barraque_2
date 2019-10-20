@@ -15,7 +15,7 @@ public class ThrowThingsManager : MonoBehaviour
     private UTimer ThrowTimer;
     private bool IsThrowing = false;
 
-    bool isPlaying;
+    bool isPlaying = true;
 
     private void OnEnable()
     {

@@ -6,7 +6,7 @@ public class Police : MonoBehaviour
 {
 
     public GameObject gign;
-    public GameObject policeman;
+    //public GameObject policeman;
 
     public float timeBeforeArrieeDesCops = 0;
     UTimer timerCops;
@@ -30,7 +30,7 @@ public class Police : MonoBehaviour
     private void Start()
     {
         gign.SetActive(false);
-        policeman.SetActive(false);
+    //    policeman.SetActive(false);
     }
 
     void OnBeginDetected()
@@ -42,7 +42,7 @@ public class Police : MonoBehaviour
     void LaunchPoliceAnimation()
     {
         gign.SetActive(true);
-        policeman.SetActive(true);
+    //    policeman.SetActive(true);
         StaticAudioManager.instance.Play("police");
     }
 }
