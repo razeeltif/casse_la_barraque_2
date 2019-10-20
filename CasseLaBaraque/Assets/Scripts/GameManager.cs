@@ -49,15 +49,22 @@ public class GameManager : MonoBehaviour
         inGame = true;
     }
 
+    private void Start()
+    {
+        StaticAudioManager.instance.Play("patate");
+    }
 
     private void Update()
     {
 
         // DETECTION
-        if (isInDetection && getDbMicro() > settings.minimumDbForDetection)
+        if (isInDetection && getDbMicro() > dbCalme)
         {
-            EventManager.onDetection();
+            EventManager.onDetected();
         }
+
+        if (getDbMicro() <= dbCalme)
+            PlayHiddingSound();
 
 
     }
@@ -73,4 +80,10 @@ public class GameManager : MonoBehaviour
     {
         return dbCalme;
     }
+
+    void PlayHiddingSound()
+    {
+
+    }
+
 }

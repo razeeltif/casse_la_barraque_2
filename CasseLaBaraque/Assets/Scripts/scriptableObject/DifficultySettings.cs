@@ -29,6 +29,13 @@ public class DifficultySettings : ScriptableObject
     [Range(0.1f, 10f)]
     public float EndReactionTime = 1f;
 
+    [Header("Time Between Sign and Check")]
+    [Range(0.1f, 5f)]
+    public float InitialTimeBetweenSigneCheck = 5f;
+
+    [Range(0.1f, 5f)]
+    public float EndTimeBetweenSigneCheck = 2f;
+
 
     void OnValidate()
     {
@@ -51,6 +58,11 @@ public class DifficultySettings : ScriptableObject
         if (InitialReactionTime < EndReactionTime)
         {
             InitialReactionTime = EndReactionTime;
+        }
+
+        if(InitialTimeBetweenSigneCheck < EndTimeBetweenSigneCheck)
+        {
+            InitialTimeBetweenSigneCheck = EndTimeBetweenSigneCheck;
         }
 
 

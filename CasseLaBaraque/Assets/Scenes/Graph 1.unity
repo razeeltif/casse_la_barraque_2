@@ -682,6 +682,7 @@ MonoBehaviour:
   micro: {fileID: 1834113155}
   dbCalme: 0.01
   isInDetection: 0
+  inGame: 0
 --- !u!1 &1235687484
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,6 +975,7 @@ GameObject:
   - component: {fileID: 1834113153}
   - component: {fileID: 1834113152}
   - component: {fileID: 1834113155}
+  - component: {fileID: 1834113156}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1059,6 +1061,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clipLoudness: 0
+--- !u!114 &1834113156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834113151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b74dff41e691204a89d3fdf764b4f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: patate
+    clip: {fileID: 8300000, guid: b19e89617f7b5564caf0dcce710bb8e0, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    loop: 0
+    audioSource: {fileID: 0}
 --- !u!1 &1992919603
 GameObject:
   m_ObjectHideFlags: 0

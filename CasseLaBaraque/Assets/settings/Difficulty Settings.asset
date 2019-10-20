@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Difficulty Settings
   m_EditorClassIdentifier: 
   playTimeInSeconds: 10
-  InitialTimeBetween2Checks: 16.6
+  InitialTimeBetween2Checks: 23.9
   EndTimeBetween2Checks: 10.7
-  InitialRandomTimeBetween2Checks: 3.2
+  InitialRandomTimeBetween2Checks: 5.8
   EndRandomTimeBetween2Checks: 10.7
-  InitialReactionTime: 3.4
-  EndReactionTime: 1.52
+  InitialReactionTime: 4.37
+  EndReactionTime: 2.11
+  InitialTimeBetweenSigneCheck: 5
+  EndTimeBetweenSigneCheck: 2

@@ -8,9 +8,17 @@ public static class EventManager
     public delegate void DetectionEvent();
     public static event DetectionEvent Detection;
 
-    public static void onDetection()
+    public delegate void BeginDetectionEvent();
+    public static event BeginDetectionEvent BeginDetection;
+
+    public static void onDetected()
     {
         Detection();
+    }
+
+    public static void onBeginDetection()
+    {
+        BeginDetection();
     }
 
     /*  // whe the player collect a Collectible
