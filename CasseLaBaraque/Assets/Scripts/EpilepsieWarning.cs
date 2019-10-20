@@ -15,10 +15,28 @@ public class EpilepsieWarning : MonoBehaviour
 
     private Coroutine epilepsyCoroutine;
 
+    private bool isPlaying = true;
+
+
+    private void OnEnable()
+    {
+        EventManager.Detection += OnDetected;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Detection -= OnDetected;
+    }
+
 
     // Start is called before the first frame update
     void Update()
     {
+
+        if (!isPlaying)
+        {
+            return;
+        }
      
         if(epilepsyCoroutine == null)
         {
@@ -130,6 +148,12 @@ public class EpilepsieWarning : MonoBehaviour
             yield return null;
         }
 
+    }
+
+    public void OnDetected()
+    {
+        isPlaying = false;
+        stopEpilepsy();
     }
 
 

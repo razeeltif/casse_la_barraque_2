@@ -20,6 +20,7 @@ public class Shake : MonoBehaviour
     float waitingTime;
     float timeWaited;
 
+    bool isPlaying = true;
 
     private void Start()
     {
@@ -47,6 +48,13 @@ public class Shake : MonoBehaviour
     // Update is called once per frame 
     void Update()
     {
+
+        if (!isPlaying)
+        {
+            return;
+        }
+
+
         float microDb = GameManager.Instance.getDbMicro();
         SetWaitingTime(microDb);
 
@@ -63,5 +71,24 @@ public class Shake : MonoBehaviour
         }
         else
             timeWaited += Time.deltaTime;
+    }
+
+
+
+
+    private void OnEnable()
+    {
+        EventManager.Detection += OnDetected;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Detection -= OnDetected;
+    }
+
+
+    private void OnDetected()
+    {
+        isPlaying = false;
     }
 }

@@ -15,6 +15,18 @@ public class ThrowThingsManager : MonoBehaviour
     private UTimer ThrowTimer;
     private bool IsThrowing = false;
 
+    bool isPlaying;
+
+    private void OnEnable()
+    {
+        EventManager.Detection += OnDetected;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Detection -= OnDetected;
+    }
+
 
 
     private void Awake()
@@ -27,6 +39,11 @@ public class ThrowThingsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (!isPlaying)
+        {
+            return;
+        }
 
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -87,6 +104,11 @@ public class ThrowThingsManager : MonoBehaviour
         Vector3 from = new Vector3(this.transform.position.x - settings.SpawnObjectsSpread, this.transform.position.y, this.transform.position.z);
         Vector3 to = new Vector3(this.transform.position.x + settings.SpawnObjectsSpread, this.transform.position.y, this.transform.position.z);
         Gizmos.DrawLine(from, to);
+    }
+
+    public void OnDetected()
+    {
+        isPlaying = false;
     }
 
 
