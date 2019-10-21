@@ -15,7 +15,7 @@ public class EpilepsieWarning : MonoBehaviour
 
     private Coroutine epilepsyCoroutine;
 
-    private bool isPlaying = true;
+    public bool isPlaying = true;
 
 
     private void OnEnable()

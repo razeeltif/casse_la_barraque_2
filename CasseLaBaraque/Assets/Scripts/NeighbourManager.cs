@@ -17,7 +17,7 @@ public class NeighbourManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        randomIndex = Random.Range(0, neighbourList.Capacity - 1);
+        randomIndex = Random.Range(0, neighbourList.Count);
         timerBetweenRestSigne.start();
     }
 
@@ -60,6 +60,8 @@ public class NeighbourManager : MonoBehaviour
     {
         neighbourList[randomIndex].CallDeparture();
         randomIndex = Random.Range(0, neighbourList.Capacity - 1);
+
+        EventManager.onEndingSurvey();
         timerBetweenRestSigne.start();
 
     }

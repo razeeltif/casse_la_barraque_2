@@ -30,8 +30,8 @@ public class StoreNeighbour : Neighbour
 
     public override void CallDeparture()
     {
-        this.GetComponentsInChildren<Animator>()[0].Play("fond_voisin_sortie");
-        this.GetComponentsInChildren<Animator>()[1].Play("volet_fermeture");
+        this.GetComponentsInChildren<Animator>()[0].Play("volet_fermeture");
+        this.GetComponentsInChildren<Animator>()[1].Play("fond_voisin_sortie");
     }
 
     public override void CallTriggered()

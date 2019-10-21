@@ -9,7 +9,10 @@ public class Police : MonoBehaviour
     //public GameObject policeman;
 
     public float timeBeforeArrieeDesCops = 0;
+    public float timeSceneGameOver = 3;
+
     UTimer timerCops;
+    UTimer timerEndScene;
 
     private void OnEnable()
     {
@@ -24,6 +27,7 @@ public class Police : MonoBehaviour
     void Awake()
     {
         timerCops = UTimer.Initialize(timeBeforeArrieeDesCops, this, LaunchPoliceAnimation);
+        timerEndScene = UTimer.Initialize(timeSceneGameOver, this, changeScene);
         
     }
 
@@ -44,5 +48,12 @@ public class Police : MonoBehaviour
         gign.SetActive(true);
     //    policeman.SetActive(true);
         StaticAudioManager.instance.Play("police");
+        timerEndScene.start();
+    }
+
+    void changeScene()
+    {
+        StaticAudioManager.instance.Stop("police");
+        SceneMan.Instance.LoadScene("MenuTest");
     }
 }

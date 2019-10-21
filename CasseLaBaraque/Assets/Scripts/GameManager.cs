@@ -69,12 +69,11 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-
-        Debug.Log(getDbMicro());
         // DETECTION
         if (inGame && isInDetection && getDbMicro() > dbCalme)
         {
             inGame = false;
+            GetComponent<ThrowThingsManager>().enabled = false;
             EventManager.onDetected();
         }
 

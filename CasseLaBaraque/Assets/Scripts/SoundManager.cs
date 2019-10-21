@@ -43,6 +43,7 @@ public class SoundManager : MonoBehaviour
             musicIndex++;
         else
             musicIndex = 0;
+        stoped = true;
     }
 
     // Update is called once per frame
@@ -70,9 +71,11 @@ public class SoundManager : MonoBehaviour
             {
                 grosseKali.Play("" + musicIndex);
                 stoped = false;
+            } else
+            {
+                grosseKali.Unpause(""+musicIndex);
             }
             zero = false;
-            grosseKali.Unpause(""+musicIndex);
         } else
         {
             //rien 
