@@ -15,24 +15,10 @@ public class ThrowThingsManager : MonoBehaviour
     private UTimer ThrowTimer;
     private bool IsThrowing = false;
 
-    public bool isPlaying = true;
-
     private void Start()
     {
         
     }
-
-    private void OnEnable()
-    {
-        EventManager.Detection += OnDetected;
-    }
-
-    private void OnDisable()
-    {
-        EventManager.Detection -= OnDetected;
-    }
-
-
 
     private void Awake()
     {
@@ -45,15 +31,15 @@ public class ThrowThingsManager : MonoBehaviour
     void Update()
     {
 
-        if (!isPlaying)
+        if (!GameManager.Instance.GetInGame())
         {
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
+        /*if (Input.GetKeyDown(KeyCode.A))
         {
             DestroyAllObjects();
-        }
+        }*/
 
         if(!IsThrowing && GameManager.Instance.getDbMicro() > settings.minDbForThrowThings)
         {
@@ -109,11 +95,6 @@ public class ThrowThingsManager : MonoBehaviour
         Vector3 from = new Vector3(this.transform.position.x - settings.SpawnObjectsSpread, this.transform.position.y, this.transform.position.z);
         Vector3 to = new Vector3(this.transform.position.x + settings.SpawnObjectsSpread, this.transform.position.y, this.transform.position.z);
         Gizmos.DrawLine(from, to);
-    }
-
-    public void OnDetected()
-    {
-        isPlaying = false;
     }
 
 

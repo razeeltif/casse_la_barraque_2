@@ -34,11 +34,10 @@ public class JourNuitScript : MonoBehaviour
     private IEnumerator fadeJourNuit()
     {
         Camera.main.backgroundColor = nuit;
-        float timer = 0;
 
-        while(timer < settings.playTimeInSeconds)
+        while(GameManager.Instance.timer < settings.playTimeInSeconds)
         {
-            float ratio = timer / settings.playTimeInSeconds;
+            float ratio = GameManager.Instance.timer / settings.playTimeInSeconds;
 
             Color newColor = Color.Lerp(nuit, jour, ratio);
 
@@ -49,8 +48,6 @@ public class JourNuitScript : MonoBehaviour
             {
                 sprite.color = Color.Lerp(ImmeubleNuit, ImmeubleJour, ratio);
             }
-
-            timer += Time.deltaTime;
             yield return null;
         }
         

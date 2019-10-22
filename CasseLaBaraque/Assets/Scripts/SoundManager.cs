@@ -4,26 +4,38 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    int musicIndex;
+    int musicIndex = 0;
     bool zero;
     bool stoped;
     public float hiddingSoundAverageSpacing;
     public float hiddingSoundSpacingSpread;
     float timeToWait;
     LightAudioManager hiddingSound;
-    LightAudioManager policeSound;
     LightAudioManager grosseKali;
 
-    // Start is called before the first frame update
-    void Start()
+    private string[] musicNames;
+
+    private void Awake()
     {
         musicIndex = 0;
         zero = true;
         stoped = true;
-        timeToWait = Random.Range(-hiddingSoundSpacingSpread, hiddingSoundSpacingSpread) + hiddingSoundAverageSpacing;
         hiddingSound = GetComponents<LightAudioManager>()[0];
-        policeSound = GetComponents<LightAudioManager>()[1];
-        grosseKali = GetComponents<LightAudioManager>()[2];
+        grosseKali = GetComponents<LightAudioManager>()[1];
+        timeToWait = Random.Range(-hiddingSoundSpacingSpread, hiddingSoundSpacingSpread) + hiddingSoundAverageSpacing;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        musicNames = new string[grosseKali.sounds.Length];
+        for(int i = 0; i < grosseKali.sounds.Length; i++)
+        {
+            musicNames[i] = grosseKali.sounds[i].name;
+        }
+
+        musicIndex = Random.Range(0, musicNames.Length);
+
     }
 
     private void OnEnable()
@@ -38,22 +50,36 @@ public class SoundManager : MonoBehaviour
 
     void YaLesVoisinsQuiPartent()
     {
-        grosseKali.Stop("" + musicIndex);
-        if (musicIndex < grosseKali.sounds.Length - 2)
-            musicIndex++;
-        else
-            musicIndex = 0;
+        grosseKali.Stop(musicNames[musicIndex]);
+
+        // on évite d'avoir la meme miusique d'un coup sur l'autre
+        int newIndex;
+        do
+        {
+            newIndex = Random.Range(0, musicNames.Length);
+        } while (newIndex == musicIndex);
+
+        musicIndex = newIndex;
+
         stoped = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
+        if (!GameManager.Instance.GetInGame())
+        {
+            return;
+        }
+
+
         if (GameManager.Instance.getDbMicro() < GameManager.Instance.getDbCalme())
         {
             if (!zero)
             {
-                grosseKali.Pause("" + musicIndex);
+                grosseKali.Pause(musicNames[musicIndex]);
                 zero = true;
             }
             if (timeToWait <= 0)
@@ -69,11 +95,11 @@ public class SoundManager : MonoBehaviour
         {
             if (stoped)
             {
-                grosseKali.Play("" + musicIndex);
+                grosseKali.Play(musicNames[musicIndex]);
                 stoped = false;
             } else
             {
-                grosseKali.Unpause(""+musicIndex);
+                grosseKali.Unpause(musicNames[musicIndex]);
             }
             zero = false;
         } else

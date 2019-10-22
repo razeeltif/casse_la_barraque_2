@@ -13,9 +13,9 @@ public class GameManager : MonoBehaviour
 
     public bool isInDetection = false;
 
-    public bool inGame = true;
+    private bool inGame = true;
 
-
+    public float timer = 0;
 
     private void OnEnable()
     {
@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         inGame = true;
+        EventManager.onBeginGame();
     }
 
     private void Start()
@@ -79,6 +80,11 @@ public class GameManager : MonoBehaviour
 
         if (getDbMicro() <= dbCalme)
             PlayHiddingSound();
+
+        if (inGame)
+        {
+            timer += Time.deltaTime;
+        }
 
 
     }

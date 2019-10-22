@@ -14,11 +14,16 @@ public class NeighbourManager : MonoBehaviour
     private UTimer timerBetweenSigneComing;
     private UTimer timerBetweenComingDeparture;
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-        randomIndex = Random.Range(0, neighbourList.Count);
-        timerBetweenRestSigne.start();
+        EventManager.Detection += NeighbourTriggered;
+        EventManager.BeginGame += beginNeighbour;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Detection -= NeighbourTriggered;
+        EventManager.BeginGame -= beginNeighbour;
     }
 
     private void Awake()
@@ -27,10 +32,16 @@ public class NeighbourManager : MonoBehaviour
         timerBetweenRestSigne = UTimer.Initialize(settings.InitialTimeBetween2Checks, this, Checking);
 
         //timer to activate after the last one, the neighbour switch on its sign and let it visible until the end of the timer
-        timerBetweenSigneComing = UTimer.Initialize(settings.InitialTimeBetweenSigneCheck, this, Coming);
+        timerBetweenSigneComing = UTimer.Initialize(settings.InitialTimeDtection, this, Coming);
 
         //timer to activate after the last one, the neighbour check if the player is making some noise until the end of the timer
         timerBetweenComingDeparture = UTimer.Initialize(settings.InitialReactionTime, this, Departure);
+
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
 
     }
 
@@ -38,6 +49,12 @@ public class NeighbourManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void beginNeighbour()
+    {
+        randomIndex = Random.Range(0, neighbourList.Count);
+        timerBetweenRestSigne.start(getTimeBetween2Checks());
     }
 
     void Checking()
@@ -53,7 +70,7 @@ public class NeighbourManager : MonoBehaviour
 
         EventManager.onBeginSurvey();
 
-        timerBetweenComingDeparture.start();
+        timerBetweenComingDeparture.start(getTimeDetection());
     }
 
     void Departure()
@@ -62,18 +79,8 @@ public class NeighbourManager : MonoBehaviour
         randomIndex = Random.Range(0, neighbourList.Capacity - 1);
 
         EventManager.onEndingSurvey();
-        timerBetweenRestSigne.start();
+        timerBetweenRestSigne.start(getTimeBetween2Checks());
 
-    }
-
-    private void OnEnable()
-    {
-        EventManager.Detection += NeighbourTriggered;
-    }
-
-    private void OnDisable()
-    {
-        EventManager.Detection -= NeighbourTriggered;
     }
 
     void NeighbourTriggered()
@@ -81,4 +88,24 @@ public class NeighbourManager : MonoBehaviour
         neighbourList[randomIndex].CallTriggered();
     }
 
+
+
+    private float getTimeBetween2Checks()
+    {
+        return Random.Range(settings.InitialTimeBetween2Checks - settings.InitialRandomTimeBetween2Checks, settings.InitialTimeBetween2Checks + settings.InitialRandomTimeBetween2Checks);
+    }
+
+    private float getTimeDetection()
+    {
+        return Random.Range(settings.InitialTimeDtection - settings.RandomTimeDetection, settings.InitialTimeDtection + settings.RandomTimeDetection);
+    }
+
+    private float getReactionTime()
+    {
+        float result;
+        float ratio = GameManager.Instance.timer / settings.playTimeInSeconds;
+
+        result = Mathf.Lerp(settings.InitialReactionTime, settings.EndReactionTime, ratio);
+        return result;
+    }
 }

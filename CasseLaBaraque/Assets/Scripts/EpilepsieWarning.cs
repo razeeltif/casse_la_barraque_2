@@ -15,8 +15,6 @@ public class EpilepsieWarning : MonoBehaviour
 
     private Coroutine epilepsyCoroutine;
 
-    public bool isPlaying = true;
-
 
     private void OnEnable()
     {
@@ -33,7 +31,7 @@ public class EpilepsieWarning : MonoBehaviour
     void Update()
     {
 
-        if (!isPlaying)
+        if (!GameManager.Instance.GetInGame())
         {
             return;
         }
@@ -152,7 +150,6 @@ public class EpilepsieWarning : MonoBehaviour
 
     public void OnDetected()
     {
-        isPlaying = false;
         stopEpilepsy();
     }
 

@@ -20,19 +20,6 @@ public class Shake : MonoBehaviour
     float waitingTime;
     float timeWaited;
 
-    public bool isPlaying = true;
-
-
-    private void OnEnable()
-    {
-        EventManager.Detection += OnDetected;
-    }
-
-    private void OnDisable()
-    {
-        EventManager.Detection -= OnDetected;
-    }
-
 
     private void Start()
     {
@@ -61,7 +48,7 @@ public class Shake : MonoBehaviour
     void Update()
     {
 
-        if (!isPlaying)
+        if (!GameManager.Instance.GetInGame())
         {
             return;
         }
@@ -86,12 +73,4 @@ public class Shake : MonoBehaviour
     }
 
 
-
-
-
-
-    private void OnDetected()
-    {
-        isPlaying = false;
-    }
 }

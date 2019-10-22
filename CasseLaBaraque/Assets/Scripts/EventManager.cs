@@ -4,6 +4,10 @@ using UnityEngine;
 
 public static class EventManager
 {
+    public delegate void BeginGameEvent();
+    public static event BeginGameEvent BeginGame;
+
+
 
     public delegate void DetectionEvent();
     public static event DetectionEvent Detection;
@@ -13,6 +17,11 @@ public static class EventManager
 
     public delegate void EndingSurveyEvent();
     public static event EndingSurveyEvent EndingSurvey;
+
+    public static void onBeginGame()
+    {
+        BeginGame();
+    }
 
     public static void onDetected()
     {

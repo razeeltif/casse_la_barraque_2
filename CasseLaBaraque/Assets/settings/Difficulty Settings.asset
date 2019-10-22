@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb56568efeec9844b05713767d029cc, type: 3}
   m_Name: Difficulty Settings
   m_EditorClassIdentifier: 
-  playTimeInSeconds: 10
-  InitialTimeBetween2Checks: 2.56
-  EndTimeBetween2Checks: 0.1
-  InitialRandomTimeBetween2Checks: 2.56
+  playTimeInSeconds: 120
+  InitialTimeBetween2Checks: 6
+  EndTimeBetween2Checks: 6
+  InitialRandomTimeBetween2Checks: 3
   EndRandomTimeBetween2Checks: 0.1
-  InitialReactionTime: 4.37
-  EndReactionTime: 2.11
-  InitialTimeBetweenSigneCheck: 5
-  EndTimeBetweenSigneCheck: 2
+  InitialReactionTime: 2
+  EndReactionTime: 0.7
+  InitialTimeDtection: 4
+  EndTimeDetection: 2
+  RandomTimeDetection: 1
